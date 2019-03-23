@@ -1,0 +1,5 @@
+kivy
+pygame
+pillow
+kivy.deps.sdl2
+kivy.deps.glew
