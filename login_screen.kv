@@ -1,0 +1,21 @@
+<LoginScreen@Screen>
+    name: 'login_screen'
+    username_text_input: username_ti
+    password_text_input: password_ti
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        TextInput:
+            id: username_ti
+            multiline: False
+
+        TextInput:
+            id: password_ti
+            multiline: False
+            password: True
+
+        Button:
+            name: 'login_button'
+            text: 'Login'
+            on_release: root.login_button_pressed()

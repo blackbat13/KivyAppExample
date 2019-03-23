@@ -1,6 +1,16 @@
-Screen:
-    name: 'main_screen'
+#:include login_screen.kv
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 
-    Button:
-        text: 'Click me!'
-        font_size: 50
+ScreenManager:
+    transition: FadeTransition()
+
+    Screen:
+        name: 'main_screen'
+
+        Button:
+            name: 'login_button'
+            text: 'Login'
+            font_size: 50
+            on_release: app.login_button_pressed()
+
+    LoginScreen:
