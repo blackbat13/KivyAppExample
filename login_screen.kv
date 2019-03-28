@@ -6,6 +6,11 @@
     BoxLayout:
         orientation: 'vertical'
 
+        Button:
+            name: 'back_button'
+            text: 'Back'
+            on_release: root.back_button_pressed()
+
         TextInput:
             id: username_ti
             multiline: False
