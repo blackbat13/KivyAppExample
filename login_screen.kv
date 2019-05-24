@@ -1,3 +1,6 @@
+#:import MDRectangleFlatButton kivymd.button.MDRectangleFlatButton
+#:import MDTextField kivymd.textfields.MDTextField
+
 <LoginScreen@Screen>
     name: 'login_screen'
     username_text_input: username_ti
@@ -5,22 +8,28 @@
 
     BoxLayout:
         orientation: 'vertical'
+        padding: dp(48)
+        size_hint_y: None
+        pos_hint: {'center_y': 0.5}
 
-        Button:
+        MDRectangleFlatButton:
             name: 'back_button'
             text: 'Back'
             on_release: root.back_button_pressed()
 
-        TextInput:
+        MDTextField:
             id: username_ti
             multiline: False
+            hint_text: "Username"
 
-        TextInput:
+        MDTextField:
             id: password_ti
             multiline: False
             password: True
+            hint_text: "Password"
 
-        Button:
+        MDRectangleFlatButton:
             name: 'login_button'
             text: 'Login'
             on_release: root.login_button_pressed()
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
