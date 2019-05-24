@@ -1,7 +1,6 @@
 <Row@BoxLayout>:
     orientation: 'horizontal'
     value: ''
-    id: ''
     Label:
         text: root.value
     Button:
@@ -9,9 +8,9 @@
         text: 'First'
         on_release: root.first_button_pressed()
     Button:
-        name: 'second_button'
-        text: 'Second'
-        on_release: root.second_button_pressed()
+        name: 'delete_button'
+        text: 'Delete'
+        on_release: root.delete_button_pressed()
 
 <RvScreen@Screen>
     name: 'rv_screen'

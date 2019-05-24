@@ -6,31 +6,34 @@ from string import ascii_lowercase
 
 class RvScreen(Screen):
 
+    def on_enter(self, *args):
+        self.populate()
+
     def populate(self):
         data = []
         for x in range(50):
-            obj = {}
-            obj['value'] = ''.join(sample(ascii_lowercase, 6))
-            obj['id'] = str(x)
+            obj = {
+                'value': ''.join(sample(ascii_lowercase, 6)),
+                'row_id': x,
+                'rv_screen': self
+            }
             data.append(obj)
 
         self.rv.data = data
 
-    def login_button_pressed(self):
-        username = self.username_text_input.text
-        password = self.password_text_input.text
-        print(username, password)
-
-    def back_button_pressed(self):
-        self.manager.current = 'main_screen'
-
-    def on_enter(self, *args):
-        self.populate()
+    def delete(self, row_id):
+        index = 0
+        for row in self.rv.data:
+            if row['row_id'] == row_id:
+                self.rv.data.pop(index)
+                break
+            index += 1
 
 
 class Row(BoxLayout):
-    def first_button_pressed(self):
-        print(self.id, self.value)
 
-    def second_button_pressed(self):
-        print(self.id, self.value)
+    def first_button_pressed(self):
+        print(self.row_id, self.value)
+
+    def delete_button_pressed(self):
+        self.rv_screen.delete(self.row_id)
