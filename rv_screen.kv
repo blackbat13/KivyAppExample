@@ -1,14 +1,17 @@
 <Row@BoxLayout>:
     orientation: 'horizontal'
     value: ''
+    id: ''
     Label:
         text: root.value
     Button:
         name: 'first_button'
         text: 'First'
+        on_release: root.first_button_pressed()
     Button:
         name: 'second_button'
         text: 'Second'
+        on_release: root.second_button_pressed()
 
 <RvScreen@Screen>
     name: 'rv_screen'
@@ -16,10 +19,6 @@
 
     BoxLayout:
         orientation: 'vertical'
-        Button:
-            name: 'populate_button'
-            text: 'populate'
-            on_release: root.populate_button_pressed()
         RecycleView:
             id: rv
             scroll_type: ['bars', 'content']
