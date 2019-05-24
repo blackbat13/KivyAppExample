@@ -1,15 +1,19 @@
+#:import MDIconButton kivymd.button.MDIconButton
+#:import MDRectangleFlatButton kivymd.button.MDRectangleFlatButton
+#:import MDLabel kivymd.label.MDLabel
+
 <Row@BoxLayout>:
     orientation: 'horizontal'
     value: ''
-    Label:
+    MDLabel:
         text: root.value
-    Button:
+    MDRectangleFlatButton:
         name: 'first_button'
         text: 'First'
         on_release: root.first_button_pressed()
-    Button:
+    MDIconButton:
         name: 'delete_button'
-        text: 'Delete'
+        icon: 'delete'
         on_release: root.delete_button_pressed()
 
 <RvScreen@Screen>
